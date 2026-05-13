@@ -1,0 +1,7 @@
+GAE  => https://google-app-engine.en.uptodown.com/windows/download
+
+Preferences -> python path(pythonw.exe) -> google path( program files - google - googleappengine)
+
+New empty folder
+
+create new application and run
