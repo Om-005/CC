@@ -1,0 +1,209 @@
+# File Transfer Between Two Ubuntu Virtual Machines Using SCP
+
+## Aim
+
+To transfer files from one Ubuntu Virtual Machine to another Ubuntu Virtual Machine using SCP (Secure Copy Protocol).
+
+---
+
+# Step 1 — Install VirtualBox
+
+```bash
+sudo apt update
+sudo apt install virtualbox -y
+```
+
+Launch VirtualBox:
+
+```bash
+virtualbox
+```
+
+---
+
+# Step 2 — Download Ubuntu ISO
+
+Download Ubuntu ISO:
+
+[https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop)
+
+Example:
+
+```text
+ubuntu-24.04-desktop-amd64.iso
+```
+
+---
+
+# Step 3 — Create First VM
+
+Open VirtualBox:
+
+```text
+New → Name: Ubuntu1
+Type: Linux
+Version: Ubuntu (64-bit)
+```
+
+Recommended:
+
+```text
+RAM: 4096 MB
+Disk: 20 GB
+```
+
+Install Ubuntu normally.
+
+Create:
+
+```text
+Username: om
+Password: om123
+```
+
+---
+
+# Step 4 — Create Second VM
+
+Repeat same steps.
+
+```text
+Name: Ubuntu2
+Username: om
+Password: om123
+```
+
+---
+
+# Step 5 — Configure Network
+
+For BOTH VMs:
+
+```text
+Settings → Network → Adapter 1 → Bridged Adapter
+```
+
+Click OK.
+
+---
+
+# Step 6 — Start Both VMs
+
+Open terminal in BOTH Ubuntu VMs.
+
+---
+
+# Step 7 — Install SSH
+
+Run on BOTH VMs:
+
+```bash
+sudo apt update
+sudo apt install openssh-server -y
+```
+
+Start SSH:
+
+```bash
+sudo systemctl start ssh
+```
+
+Enable SSH:
+
+```bash
+sudo systemctl enable ssh
+```
+
+Check SSH status:
+
+```bash
+sudo systemctl status ssh
+```
+
+Expected output:
+
+```text
+active (running)
+```
+
+---
+
+# Step 8 — Find IP Address
+
+Run on BOTH VMs:
+
+```bash
+hostname -I
+```
+
+Example:
+
+VM1:
+
+```text
+192.168.1.10
+```
+
+VM2:
+
+```text
+192.168.1.20
+```
+
+---
+
+# Step 9 — Create File in VM1
+
+Run on VM1:
+
+```bash
+echo "Hello from VM1" > file.txt
+```
+
+Check file:
+
+```bash
+cat file.txt
+```
+
+---
+
+# Step 10 — Transfer File From VM1 to VM2
+
+Run on VM1:
+
+```bash
+scp file.txt om@192.168.1.20:/home/om/
+```
+
+Enter password:
+
+```text
+om123
+```
+
+---
+
+# Step 11 — Verify File in VM2
+
+Run on VM2:
+
+```bash
+ls
+```
+
+Read file:
+
+```bash
+cat file.txt
+```
+
+Expected output:
+
+```text
+Hello from VM1
+```
+
+---
+
+ween two
