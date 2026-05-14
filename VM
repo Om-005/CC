@@ -23,15 +23,10 @@ virtualbox
 
 # Step 2 — Download Ubuntu ISO
 
-Download Ubuntu ISO:
+Download Ubuntu Disk:
 
-[https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop)
+https://portal.cloud.hashicorp.com/vagrant/discover/bento/ubuntu-16.04
 
-Example:
-
-```text
-ubuntu-24.04-desktop-amd64.iso
-```
 
 ---
 
@@ -45,14 +40,10 @@ Type: Linux
 Version: Ubuntu (64-bit)
 ```
 
-Recommended:
+Use an Existing Virtual Hard Disk File
 
-```text
-RAM: 4096 MB
-Disk: 20 GB
-```
-
-Install Ubuntu normally.
+select: 
+ubuntu-18.04-amd64-disk001
 
 Create:
 
